@@ -1,3 +1,4 @@
+
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
@@ -39,3 +40,6 @@ class BasePage:
         element = self.find_element_with_wait(locator)
         element.send_keys(text)
         element.send_keys(Keys.ENTER)
+        
+    def get_current_url(self):
+        return self.driver.current_url
