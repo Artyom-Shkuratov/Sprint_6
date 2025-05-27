@@ -1,1 +1,0 @@
-{"uuid": "c4546f9b-2079-407f-a67d-6c9220840a13", "children": ["0a710f96-53c1-4c8f-aae8-b4a876a0f761"], "befores": [{"name": "Открываем  Firefox", "status": "passed", "start": 1748254424469, "stop": 1748254428562}], "afters": [{"name": "Открываем  Firefox::0", "status": "passed", "start": 1748254428848, "stop": 1748254429438}], "start": 1748254424469, "stop": 1748254429438}

@@ -1,8 +1,10 @@
 import allure
 from selenium.common import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from locators import header_locators as locators
-
+from selenium.webdriver.support.ui import WebDriverWait
+from locators import home_page_locators as home_locators
 
 
 class Header(BasePage):
@@ -14,6 +16,7 @@ class Header(BasePage):
     @allure.step('Нажимаем на лого Самокат в шапке сайта')
     def click_scooter_logo(self):
         self.click_on_element(locators.LOGO_SAMOKAT)
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(home_locators.SCROLL_LOCATOR))
         
     @allure.step("Переходим на  открытую вкладку")
     def switch_the_last_open_page(self):
