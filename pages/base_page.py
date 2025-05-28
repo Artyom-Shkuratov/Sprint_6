@@ -50,3 +50,7 @@ class BasePage:
         element = self.find_element_with_wait(locator)
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
         WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator)).click()
+        
+        
+    def switch_to_last_tab(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])

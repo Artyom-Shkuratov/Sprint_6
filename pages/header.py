@@ -20,7 +20,7 @@ class Header(BasePage):
         
     @allure.step("Переходим на  открытую вкладку")
     def switch_the_last_open_page(self):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
+        self.switch_to_last_tab()
         
     @allure.step("Проверяем, что мы на странице яндекса")
     def check_yandex_dzen_opened(self):
