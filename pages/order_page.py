@@ -42,7 +42,7 @@ class OrderPage(BasePage):
         
     @allure.step('Заполняем информацию о сроке аренды и выборе цвета')
     def fill_rent_info(self, data):
-        date_input = self.driver.find_element(*locators.DELIVERY_DATE_INPUT)
+        date_input = self.find_element_with_wait(locators.DELIVERY_DATE_INPUT)
         date_input.send_keys(data['rent_date'])
         date_input.send_keys(Keys.ENTER)
         self.click_on_element(locators.RENTAL_PERIOD_DROPDOWN)

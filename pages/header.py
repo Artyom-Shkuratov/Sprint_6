@@ -16,7 +16,7 @@ class Header(BasePage):
     @allure.step('Нажимаем на лого Самокат в шапке сайта')
     def click_scooter_logo(self):
         self.click_on_element(locators.LOGO_SAMOKAT)
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(home_locators.SCROLL_LOCATOR))
+        self.find_element_with_wait(home_locators.SCROLL_LOCATOR)
         
     @allure.step("Переходим на  открытую вкладку")
     def switch_the_last_open_page(self):

@@ -54,3 +54,8 @@ class BasePage:
         
     def switch_to_last_tab(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])
+        
+   
+    def scroll_to_element_center(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
+

@@ -16,7 +16,7 @@ class HomePage(BasePage):
     def click_to_question(self, num):
         question_locator = self.format_locator(QUESTION_LOCATOR_TEMPLATE, num)
         element = self.find_element_with_wait(question_locator)
-        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
+        self.scroll_to_element_center(element)
         self.wait_until_clickable(question_locator).click()
 
     @allure.step("Получаем текст ответа на вопрос")
@@ -29,18 +29,19 @@ class HomePage(BasePage):
     @allure.step("Прокручиваем страницу до секции FAQ")
     def scroll_to_down(self):
         element = self.find_element_with_wait(SCROLL_LOCATOR)
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.scroll_to_element_center(element)
         
     @allure.step("Ожидаем загрузку главной страницы")
     def wait_for_homepage_loaded(self):
-        WebDriverWait(self.driver, 15).until(EC.presence_of_element_located(home_locators.SCROLL_LOCATOR))
+        self.find_element_with_wait(home_locators.SCROLL_LOCATOR)
+
         
         
     @allure.step("Ждём, пока загрузится картинка самоката")
     def wait_for_img_samocat(self):
         self.scroll_to_down()
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(home_locators.IMG_SAMOCAT))
-        
+        return self.find_element_with_wait(home_locators.IMG_SAMOCAT)
+            
         
     @staticmethod
     def format_locator(locator_template, num):
