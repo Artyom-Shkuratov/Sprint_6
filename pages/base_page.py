@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+        self.wait = WebDriverWait(self.driver, 10)
 
     # Ожидает, пока элемент станет видимым, и возвращает его
     def find_element_with_wait(self, locator):

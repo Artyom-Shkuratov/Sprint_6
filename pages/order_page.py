@@ -13,7 +13,6 @@ class OrderPage(BasePage):
     
     def __init__(self, driver):
         super().__init__(driver)
-        self.wait = WebDriverWait(driver, 10)
     
     @staticmethod
     def format_rent_time_locator(rent_time_option_locator, option):
